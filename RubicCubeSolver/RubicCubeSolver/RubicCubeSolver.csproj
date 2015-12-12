@@ -97,6 +97,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\EnumConverter.cs" />
+    <Compile Include="Model\Cube.cs" />
+    <Compile Include="Model\Enums\LayerColor.cs" />
+    <Compile Include="Model\Layer.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\UserControl1ViewModel.cs" />
     <Compile Include="ViewModels\UserControl2ViewModel.cs" />
