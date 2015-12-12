@@ -22,9 +22,9 @@
         <Rectangle Margin="3" Fill="{Binding TopLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
         <Rectangle Margin="3" Fill="{Binding TopMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
         <Rectangle Margin="3" Fill="{Binding TopRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding LeftMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding MidLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
         <Rectangle Margin="3" Fill="{Binding Mid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding RightMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding MidRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
         <Rectangle Margin="3" Fill="{Binding BottomLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
         <Rectangle Margin="3" Fill="{Binding BottomMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
         <Rectangle Margin="3" Fill="{Binding BottomRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />

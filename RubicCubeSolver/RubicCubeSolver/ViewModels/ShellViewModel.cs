@@ -23,6 +23,7 @@ namespace RubicCubeSolver.ViewModels
             Open1Cmd = new DelegateCommand(() => { ShellViewIndex = ShellViews.UserCtrl1; });
             Open2Cmd = new DelegateCommand(() => { ShellViewIndex = ShellViews.UserCtrl2; });
             Open3Cmd = new DelegateCommand(() => { ShellViewIndex = ShellViews.UserCtrl3; });
+            ShellViewIndex = ShellViews.UserCtrl2;
         }
     }
 

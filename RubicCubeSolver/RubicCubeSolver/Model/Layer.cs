@@ -1,4 +1,6 @@
-﻿using System.Windows.Media;
+﻿using RubicCubeSolver.Model.Enum;
+using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace RubicCubeSolver.Model
 {
@@ -6,77 +8,94 @@ namespace RubicCubeSolver.Model
     {
         public Layer()
         {
-
+            _content = new Dictionary<LayerPosition, Color>()
+            {
+                {LayerPosition.BottomLeft, Colors.Orange },
+                {LayerPosition.BottomMid,  Colors.Orange },
+                {LayerPosition.BottomRight,  Colors.Orange },
+                {LayerPosition.MidLeft,  Colors.Orange },
+                {LayerPosition.Mid,  Colors.Orange },
+                {LayerPosition.MidRight,  Colors.Orange },
+                {LayerPosition.TopLeft,  Colors.Orange },
+                {LayerPosition.TopMid,  Colors.Orange },
+                {LayerPosition.TopRight,  Colors.Orange }
+            };
         }
 
-        private readonly Color[,] _content = new Color[3, 3];
+        private readonly Dictionary<LayerPosition, Color> _content;
 
-        public Layer(Color[,] content)
+        public Layer(Dictionary<LayerPosition, Color> content)
         {
             _content = content;
         }
 
         internal static Layer GetFullColorLayer(Color color)
         {
-            return new Layer(new Color[,]
+            return new Layer(new Dictionary<LayerPosition, Color>
             {
-                {color, color, color },
-                {color, color, color },
-                {color, color, color }
+                {LayerPosition.BottomLeft, color },
+                {LayerPosition.BottomMid, color },
+                {LayerPosition.BottomRight, color },
+                {LayerPosition.MidLeft, color },
+                {LayerPosition.Mid, color },
+                {LayerPosition.MidRight, color },
+                {LayerPosition.TopLeft, color },
+                {LayerPosition.TopMid, color },
+                {LayerPosition.TopRight, color }
             });
         }
 
         public Color TopLeft
         {
-            get { return _content[0, 0]; }
-            set { _content[0, 0] = value; }
+            get { return _content[LayerPosition.TopLeft]; }
+            set { _content[LayerPosition.TopLeft] = value; }
         }
 
         public Color TopMid
         {
-            get { return _content[0, 1]; }
-            set { _content[0, 1] = value; }
+            get { return _content[LayerPosition.TopMid]; }
+            set { _content[LayerPosition.TopMid] = value; }
         }
         public Color TopRight
         {
-            get { return _content[0, 2]; }
-            set { _content[0, 2] = value; }
+            get { return _content[LayerPosition.TopRight]; }
+            set { _content[LayerPosition.TopRight] = value; }
         }
 
-        public Color LeftMid
+        public Color MidLeft
         {
-            get { return _content[1, 0]; }
-            set { _content[1, 0] = value; }
+            get { return _content[LayerPosition.MidLeft]; }
+            set { _content[LayerPosition.MidLeft] = value; }
         }
 
         public Color Mid
         {
-            get { return _content[1, 1]; }
-            set { _content[1, 1] = value; }
+            get { return _content[LayerPosition.Mid]; }
+            set { _content[LayerPosition.Mid] = value; }
         }
 
-        public Color RightMid
+        public Color MidRight
         {
-            get { return _content[1, 2]; }
-            set { _content[1, 2] = value; }
+            get { return _content[LayerPosition.MidRight]; }
+            set { _content[LayerPosition.MidRight] = value; }
         }
 
         public Color BottomLeft
         {
-            get { return _content[2, 0]; }
-            set { _content[2, 0] = value; }
+            get { return _content[LayerPosition.BottomLeft]; }
+            set { _content[LayerPosition.BottomLeft] = value; }
         }
 
         public Color BottomMid
         {
-            get { return _content[2, 1]; }
-            set { _content[2, 1] = value; }
+            get { return _content[LayerPosition.BottomMid]; }
+            set { _content[LayerPosition.BottomMid] = value; }
         }
 
         public Color BottomRight
         {
-            get { return _content[2, 2]; }
-            set { _content[2, 2] = value; }
+            get { return _content[LayerPosition.BottomRight]; }
+            set { _content[LayerPosition.BottomRight] = value; }
         }
     }
 }
