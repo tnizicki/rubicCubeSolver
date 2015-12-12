@@ -1,11 +1,16 @@
-﻿using RubicCubeSolver.Model.Enum;
+﻿using Microsoft.Practices.Prism.Commands;
+using RubicCubeSolver.Model.Enum;
 using System.Collections.Generic;
+using System.Windows.Input;
 using System.Windows.Media;
+using System;
 
 namespace RubicCubeSolver.Model
 {
     public class Layer
     {
+        public ICommand ChangeColorCommand { get; set; }
+
         public Layer()
         {
             _content = new Dictionary<LayerPosition, Color>()
@@ -20,11 +25,19 @@ namespace RubicCubeSolver.Model
                 {LayerPosition.TopMid,  Colors.Orange },
                 {LayerPosition.TopRight,  Colors.Orange }
             };
+
+            ChangeColorCommand = new DelegateCommand<string>(ChangeColor);
+        }
+
+        private void ChangeColor(object obj)
+        {
+            throw new NotImplementedException();
         }
 
         private readonly Dictionary<LayerPosition, Color> _content;
 
         public Layer(Dictionary<LayerPosition, Color> content)
+            : this()
         {
             _content = content;
         }

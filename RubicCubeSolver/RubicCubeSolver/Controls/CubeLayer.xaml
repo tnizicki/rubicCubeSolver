@@ -10,6 +10,27 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <Converters:ColorToSolidColorBrushValueConverter x:Key="ColorToSolidColorBrushConverter" />
+        <Style TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Rectangle Fill="{TemplateBinding Background}"></Rectangle>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Rectangle">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
     <UserControl.DataContext>
         <localModel:Layer/>
@@ -19,14 +40,14 @@
                      Width="{Binding RelativeSource={RelativeSource Self},
                                      Path=ActualHeight}"
                      Background="Black">
-        <Rectangle Margin="3" Fill="{Binding TopLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding TopMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding TopRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding MidLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding Mid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding MidRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding BottomLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding BottomMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
-        <Rectangle Margin="3" Fill="{Binding BottomRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Button Margin="3" Background="{Binding TopLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="TopLeft"/>
+        <Button Margin="3" Background="{Binding TopMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="TopMid"/>
+        <Button Margin="3" Background="{Binding TopRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="TopRight"/>
+        <Button Margin="3" Background="{Binding MidLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="MidLeft"/>
+        <Button Margin="3" Background="{Binding Mid, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="Mid"/>
+        <Button Margin="3" Background="{Binding MidRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="MidRight"/>
+        <Button Margin="3" Background="{Binding BottomLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="BottomLeft"/>
+        <Button Margin="3" Background="{Binding BottomMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="BottomMid"/>
+        <Button Margin="3" Background="{Binding BottomRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="BottomRight"/>
     </UniformGrid>
 </UserControl>

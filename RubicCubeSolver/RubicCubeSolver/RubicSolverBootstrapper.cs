@@ -17,7 +17,7 @@ namespace RubicCubeSolver
             builder.RegisterAssemblyTypes(viewModelAssembly).Where(x => x.Name != null && x.Name.EndsWith("ViewModel") && !x.Name.Contains("ShellViewModel"));
 
             builder.RegisterType<ShellViewModel>().SingleInstance();
-
+            builder.RegisterType<CubePlainViewViewModel>().SingleInstance();
             builder.RegisterType<Shell>();
         }
 
