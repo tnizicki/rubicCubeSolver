@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="RubicCubeSolver.Controls.CubeLayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Converters="clr-namespace:RubicCubeSolver.Converters"
+             xmlns:localModel="clr-namespace:RubicCubeSolver.Model"
+             xmlns:local="clr-namespace:RubicCubeSolver.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Converters:ColorToSolidColorBrushValueConverter x:Key="ColorToSolidColorBrushConverter" />
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <localModel:Layer/>
+    </UserControl.DataContext>
+    <UniformGrid Grid.Row="1"
+                     Grid.Column="1"
+                     Width="{Binding RelativeSource={RelativeSource Self},
+                                     Path=ActualHeight}"
+                     Background="Black">
+        <Rectangle Margin="3" Fill="{Binding TopLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding TopMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding TopRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding LeftMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding Mid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding RightMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding BottomLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding BottomMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+        <Rectangle Margin="3" Fill="{Binding BottomRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" />
+    </UniformGrid>
+</UserControl>

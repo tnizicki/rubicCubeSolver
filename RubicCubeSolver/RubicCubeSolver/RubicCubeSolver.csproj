@@ -96,22 +96,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\CubeLayer.xaml.cs">
+      <DependentUpon>CubeLayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ColorToSolidColorBrushValueConverter.cs" />
     <Compile Include="Converters\EnumConverter.cs" />
     <Compile Include="Model\Cube.cs" />
-    <Compile Include="Model\Enums\LayerColor.cs" />
     <Compile Include="Model\Layer.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\UserControl1ViewModel.cs" />
-    <Compile Include="ViewModels\UserControl2ViewModel.cs" />
+    <Compile Include="ViewModels\CubePlainViewViewModel.cs" />
     <Compile Include="ViewModels\UserControl3ViewModel.cs" />
     <Compile Include="Views\Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="Views\Cube3DView.xaml.cs">
+      <DependentUpon>Cube3DView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControl2.xaml.cs">
-      <DependentUpon>UserControl2.xaml</DependentUpon>
+    <Compile Include="Views\CubePlainView.xaml.cs">
+      <DependentUpon>CubePlainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControl3.xaml.cs">
       <DependentUpon>UserControl3.xaml</DependentUpon>
@@ -121,15 +124,19 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RubicSolverBootstrapper.cs" />
+    <Page Include="Controls\CubeLayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Shell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControl1.xaml">
+    <Page Include="Views\Cube3DView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControl2.xaml">
+    <Page Include="Views\CubePlainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,9 +175,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

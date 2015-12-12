@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="RubicCubeSolver.Views.CubePlainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Converters="clr-namespace:RubicCubeSolver.Converters"
+             xmlns:controls="clr-namespace:RubicCubeSolver.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:RubicCubeSolver.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
+             xmlns:viewModels="clr-namespace:RubicCubeSolver.ViewModels"
+             d:DataContext="{d:DesignInstance {x:Type viewModels:CubePlainViewViewModel},
+                                              IsDesignTimeCreatable=True}"
+             d:DesignHeight="500"
+             d:DesignWidth="1000"
+             viewModel:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Converters:ColorToSolidColorBrushValueConverter x:Key="ColorToSolidColorBrushConverter" />
+        <Style TargetType="Rectangle">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid Width="800"
+          Height="600"
+          Margin="50"
+          HorizontalAlignment="Left"
+          VerticalAlignment="Top"
+          Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <controls:CubeLayer Grid.Row="0"
+                            Grid.Column="1"
+                            DataContext="{Binding CubeVM.UpLayer}" />
+        <controls:CubeLayer Grid.Row="1"
+                            Grid.Column="0"
+                            DataContext="{Binding CubeVM.LeftLayer}" />
+        <controls:CubeLayer Grid.Row="1"
+                            Grid.Column="1"
+                            DataContext="{Binding CubeVM.FrontLayer}" />
+        <controls:CubeLayer Grid.Row="1"
+                            Grid.Column="2"
+                            DataContext="{Binding CubeVM.RightLayer}" />
+        <controls:CubeLayer Grid.Row="1"
+                            Grid.Column="3"
+                            DataContext="{Binding CubeVM.BottomLayer}" />
+        <controls:CubeLayer Grid.Row="2"
+                            Grid.Column="1"
+                            DataContext="{Binding CubeVM.DownLayer}" />
+    </Grid>
+</UserControl>

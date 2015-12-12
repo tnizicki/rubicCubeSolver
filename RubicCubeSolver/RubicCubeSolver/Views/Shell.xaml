@@ -1,21 +1,24 @@
 ﻿<Window x:Class="RubicCubeSolver.Views.Shell"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Converters="clr-namespace:RubicCubeSolver.Converters"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:enums="clr-namespace:RubicCubeSolver.ViewModels"
-        xmlns:views="clr-namespace:RubicCubeSolver.Views"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModel="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
         xmlns:viewModels="clr-namespace:RubicCubeSolver.ViewModels"
+        xmlns:views="clr-namespace:RubicCubeSolver.Views"
+        Title="Shell"
+        Width="300"
+        Height="300"
         WindowState="Maximized"
         d:DataContext="{d:DesignInstance {x:Type viewModels:ShellViewModel},
                                          IsDesignTimeCreatable=True}"
-        xmlns:Converters="clr-namespace:RubicCubeSolver.Converters"
         viewModel:ViewModelLocator.AutoWireViewModel="True"
-        mc:Ignorable="d"
-        Title="Shell" Height="300" Width="300">
+        mc:Ignorable="d">
     <Window.Resources>
         <Converters:EnumConverter x:Key="EnumConverter" />
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -25,8 +28,8 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="_File">
-                <MenuItem Command="{Binding Open1Cmd}" Header="1" />
-                <MenuItem Command="{Binding Open2Cmd}" Header="2" />
+                <MenuItem Command="{Binding Open1Cmd}" Header="3D View" />
+                <MenuItem Command="{Binding Open2Cmd}" Header="Plain View" />
                 <Separator />
                 <MenuItem Command="{Binding Open3Cmd}" Header="3" />
             </MenuItem>
@@ -43,13 +46,13 @@
                 </Style>
             </TabControl.ItemContainerStyle>
             <TabItem>
-                <views:UserControl1 VerticalAlignment="Stretch" />
+                <views:Cube3DView VerticalAlignment="Stretch" />
             </TabItem>
             <TabItem>
-                <views:UserControl2 VerticalAlignment="Stretch" />
+                <views:CubePlainView VerticalAlignment="Stretch" />
             </TabItem>
             <TabItem>
-                <views:UserControl3 VerticalAlignment="Stretch"/>
+                <views:UserControl3 VerticalAlignment="Stretch" />
             </TabItem>
         </TabControl>
     </Grid>

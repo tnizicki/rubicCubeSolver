@@ -1,25 +1,24 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RubicCubeSolver.Model.Enums;
+﻿using System.Windows.Media;
 
 namespace RubicCubeSolver.Model
 {
     public class Layer
     {
-        private readonly LayerColor[,] _content = new LayerColor[3, 3];
+        public Layer()
+        {
 
-        public Layer(LayerColor[,] content)
+        }
+
+        private readonly Color[,] _content = new Color[3, 3];
+
+        public Layer(Color[,] content)
         {
             _content = content;
         }
 
-        internal static Layer GetFullColorLayer(LayerColor color)
+        internal static Layer GetFullColorLayer(Color color)
         {
-            return new Layer(new LayerColor[,]
+            return new Layer(new Color[,]
             {
                 {color, color, color },
                 {color, color, color },
@@ -27,54 +26,54 @@ namespace RubicCubeSolver.Model
             });
         }
 
-        public LayerColor TopLeft
+        public Color TopLeft
         {
             get { return _content[0, 0]; }
             set { _content[0, 0] = value; }
         }
 
-        public LayerColor TopMid
+        public Color TopMid
         {
             get { return _content[0, 1]; }
             set { _content[0, 1] = value; }
         }
-        public LayerColor TopRight
+        public Color TopRight
         {
             get { return _content[0, 2]; }
             set { _content[0, 2] = value; }
         }
 
-        public LayerColor LeftMid
+        public Color LeftMid
         {
             get { return _content[1, 0]; }
             set { _content[1, 0] = value; }
         }
 
-        public LayerColor Mid
+        public Color Mid
         {
             get { return _content[1, 1]; }
             set { _content[1, 1] = value; }
         }
 
-        public LayerColor RightMid
+        public Color RightMid
         {
             get { return _content[1, 2]; }
             set { _content[1, 2] = value; }
         }
 
-        public LayerColor BottomLeft
+        public Color BottomLeft
         {
             get { return _content[2, 0]; }
             set { _content[2, 0] = value; }
         }
 
-        public LayerColor BottomMid
+        public Color BottomMid
         {
             get { return _content[2, 1]; }
             set { _content[2, 1] = value; }
         }
 
-        public LayerColor BottomRight
+        public Color BottomRight
         {
             get { return _content[2, 2]; }
             set { _content[2, 2] = value; }

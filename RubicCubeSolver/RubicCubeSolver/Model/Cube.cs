@@ -1,9 +1,4 @@
-﻿using RubicCubeSolver.Model.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Media;
 
 namespace RubicCubeSolver.Model
 {
@@ -28,12 +23,12 @@ namespace RubicCubeSolver.Model
 
         public void Randomize()
         {
-            FrontLayer = Layer.GetFullColorLayer(LayerColor.Blue);
-            UpLayer = Layer.GetFullColorLayer(LayerColor.Green);
-            DownLayer = Layer.GetFullColorLayer(LayerColor.Orange);
-            BottomLayer = Layer.GetFullColorLayer(LayerColor.Red);
-            RightLayer = Layer.GetFullColorLayer(LayerColor.White);
-            LeftLayer = Layer.GetFullColorLayer(LayerColor.Yellow);
+            FrontLayer = Layer.GetFullColorLayer(Colors.Blue);
+            UpLayer = Layer.GetFullColorLayer(Colors.Green);
+            DownLayer = Layer.GetFullColorLayer(Colors.Orange);
+            BottomLayer = Layer.GetFullColorLayer(Colors.Red);
+            RightLayer = Layer.GetFullColorLayer(Colors.White);
+            LeftLayer = Layer.GetFullColorLayer(Colors.Yellow);
         }
     }
 }
