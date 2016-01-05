@@ -4,6 +4,7 @@ using Prism.AutofacExtension;
 using RubicCubeSolver.ViewModels;
 using RubicCubeSolver.Views;
 using Microsoft.Practices.Prism.Mvvm;
+using RubicSolverEngine.Model;
 
 namespace RubicCubeSolver
 {
@@ -11,13 +12,15 @@ namespace RubicCubeSolver
     {
         protected override void ConfigureContainer(ContainerBuilder builder)
         {
-            base.ConfigureContainer(builder); 
+            base.ConfigureContainer(builder);
 
-            var viewModelAssembly = typeof(ShellViewModel).Assembly;
-            builder.RegisterAssemblyTypes(viewModelAssembly).Where(x => x.Name != null && x.Name.EndsWith("ViewModel") && !x.Name.Contains("ShellViewModel"));
+            //var viewModelAssembly = typeof(ShellViewModel).Assembly;
+            //builder.RegisterAssemblyTypes(viewModelAssembly).Where(x => x.Name != null && x.Name.EndsWith("ViewModel") && !x.Name.Contains("ShellViewModel"));
 
+            builder.RegisterType<UserControl3ViewModel>().SingleInstance();
             builder.RegisterType<ShellViewModel>().SingleInstance();
-            builder.RegisterType<CubePlainViewViewModel>().SingleInstance();
+            builder.RegisterType<CubeViewModel>().SingleInstance();
+            builder.Register(x => new CubePlainViewViewModel(new Cube())).SingleInstance();
             builder.RegisterType<Shell>();
         }
 

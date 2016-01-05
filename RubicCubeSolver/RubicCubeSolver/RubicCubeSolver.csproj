@@ -96,14 +96,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\CubeLayer.xaml.cs">
-      <DependentUpon>CubeLayer.xaml</DependentUpon>
+    <Compile Include="Controls\CubeSurface.xaml.cs">
+      <DependentUpon>CubeSurface.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\ColorToSolidColorBrushValueConverter.cs" />
     <Compile Include="Converters\EnumConverter.cs" />
-    <Compile Include="Model\Cube.cs" />
-    <Compile Include="Model\Enum\LayerPosition.cs" />
-    <Compile Include="Model\Layer.cs" />
+    <Compile Include="ViewModels\CubeViewModel.cs" />
+    <Compile Include="ControlViewModels\SurfaceViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\UserControl1ViewModel.cs" />
     <Compile Include="ViewModels\CubePlainViewViewModel.cs" />
@@ -125,7 +124,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="RubicSolverBootstrapper.cs" />
-    <Page Include="Controls\CubeLayer.xaml">
+    <Page Include="Controls\CubeSurface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,6 +176,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RubicSolverEngine\RubicSolverEngine.csproj">
+      <Project>{447f6f1d-b240-4cab-bc22-5b9e840cea5a}</Project>
+      <Name>RubicSolverEngine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.csproj">
       <Project>{76324823-d289-4247-8f64-3d4ccf0f973e}</Project>
       <Name>Utils</Name>

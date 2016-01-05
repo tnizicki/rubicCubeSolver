@@ -34,23 +34,23 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <controls:CubeLayer Grid.Row="0"
+        <controls:CubeSurface Grid.Row="0"
                             Grid.Column="1"
-                            DataContext="{Binding CubeVM.UpLayer}" />
-        <controls:CubeLayer Grid.Row="1"
+                            DataContext="{Binding TopSurface}" />
+        <controls:CubeSurface Grid.Row="1"
                             Grid.Column="0"
-                            DataContext="{Binding CubeVM.LeftLayer}" />
-        <controls:CubeLayer Grid.Row="1"
+                            DataContext="{Binding LeftSurface}" />
+        <controls:CubeSurface Grid.Row="1"
                             Grid.Column="1"
-                            DataContext="{Binding CubeVM.FrontLayer}" />
-        <controls:CubeLayer Grid.Row="1"
+                            DataContext="{Binding FrontSurface}" />
+        <controls:CubeSurface Grid.Row="1"
                             Grid.Column="2"
-                            DataContext="{Binding CubeVM.RightLayer}" />
-        <controls:CubeLayer Grid.Row="1"
+                            DataContext="{Binding RightSurface}" />
+        <controls:CubeSurface Grid.Row="1"
                             Grid.Column="3"
-                            DataContext="{Binding CubeVM.BottomLayer}" />
-        <controls:CubeLayer Grid.Row="2"
+                            DataContext="{Binding BottomSurface}" />
+        <controls:CubeSurface Grid.Row="2"
                             Grid.Column="1"
-                            DataContext="{Binding CubeVM.DownLayer}" />
+                            DataContext="{Binding DownSurface}" />
     </Grid>
 </UserControl>

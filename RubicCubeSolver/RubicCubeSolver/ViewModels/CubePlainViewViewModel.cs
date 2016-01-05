@@ -1,22 +1,16 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
-using RubicCubeSolver.Model;
+using RubicSolverEngine.Model;
 
 namespace RubicCubeSolver.ViewModels
 {
-    public class CubePlainViewViewModel : BindableBase
+    public class CubePlainViewViewModel : CubeViewModel
     {
-        private Cube _cubeVM;
+        private readonly Cube _cube;
 
-        public CubePlainViewViewModel()
+        public CubePlainViewViewModel(Cube cube)
+            : base(cube)
         {
-            CubeVM = new Cube();
-            CubeVM.Randomize();
-        }
-
-        public Cube CubeVM
-        {
-            get { return _cubeVM; }
-            set { SetProperty(ref _cubeVM, value); }
+            _cube = cube;
         }
     }
 }
