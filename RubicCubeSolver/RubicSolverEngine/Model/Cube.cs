@@ -1,6 +1,7 @@
 ﻿using RubicSolverEngine.Model.Enum;
 using System.Collections.Generic;
 using System.Windows.Media;
+using System;
 
 namespace RubicSolverEngine.Model
 {
@@ -26,6 +27,11 @@ namespace RubicSolverEngine.Model
             Surfaces.Add(SideType.Down, Surface.GetFullColorLayer(Colors.Red));
             Surfaces.Add(SideType.Right, Surface.GetFullColorLayer(Colors.White));
             Surfaces.Add(SideType.Left, Surface.GetFullColorLayer(Colors.Yellow));
+        }
+
+        public void PeformFMove()
+        {
+            
         }
     }
 }

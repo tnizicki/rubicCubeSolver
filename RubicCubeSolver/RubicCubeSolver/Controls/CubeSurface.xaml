@@ -1,20 +1,21 @@
 ﻿<UserControl x:Class="RubicCubeSolver.Controls.CubeSurface"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Converters="clr-namespace:RubicCubeSolver.Converters"
-             xmlns:localVM="clr-namespace:RubicCubeSolver.ControlViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:RubicCubeSolver.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             xmlns:localVM="clr-namespace:RubicCubeSolver.ControlViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
     <UserControl.Resources>
         <Converters:ColorToSolidColorBrushValueConverter x:Key="ColorToSolidColorBrushConverter" />
         <Style TargetType="Button">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Rectangle Fill="{TemplateBinding Background}"></Rectangle>
+                        <Rectangle Fill="{TemplateBinding Background}" />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -33,18 +34,63 @@
         </Style>
     </UserControl.Resources>
     <UniformGrid Grid.Row="1"
-                     Grid.Column="1"
-                     Width="{Binding RelativeSource={RelativeSource Self},
-                                     Path=ActualHeight}"
-                     Background="Black">
-        <Button Margin="3" Background="{Binding TopLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="TopLeft"/>
-        <Button Margin="3" Background="{Binding TopMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="TopMid"/>
-        <Button Margin="3" Background="{Binding TopRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="TopRight"/>
-        <Button Margin="3" Background="{Binding MidLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="MidLeft"/>
-        <Button Margin="3" Background="{Binding Mid, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="Mid"/>
-        <Button Margin="3" Background="{Binding MidRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="MidRight"/>
-        <Button Margin="3" Background="{Binding BottomLeft, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="BottomLeft"/>
-        <Button Margin="3" Background="{Binding BottomMid, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="BottomMid"/>
-        <Button Margin="3" Background="{Binding BottomRight, Converter={StaticResource ColorToSolidColorBrushConverter}}" Command="{Binding ChangeColorCommand}" CommandParameter="BottomRight"/>
+                 Grid.Column="1"
+                 Width="{Binding RelativeSource={RelativeSource Self},
+                                 Path=ActualHeight}"
+                 Background="Black">
+        <Button Margin="3"
+                Background="{Binding TopLeft,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="TopLeft" />
+        <Button Margin="3"
+                Background="{Binding TopMid,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="TopMid" />
+        <Button Margin="3"
+                Background="{Binding TopRight,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="TopRight" />
+        <Button Margin="3"
+                Background="{Binding MidLeft,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="MidLeft" />
+        <Button Margin="3"
+                Background="{Binding Mid,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="Mid" />
+        <Button Margin="3"
+                Background="{Binding MidRight,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="MidRight" />
+        <Button Margin="3"
+                Background="{Binding BottomLeft,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="BottomLeft" />
+        <Button Margin="3"
+                Background="{Binding BottomMid,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="BottomMid" />
+        <Button Margin="3"
+                Background="{Binding BottomRight,
+                                     Mode=TwoWay,
+                                     Converter={StaticResource ColorToSolidColorBrushConverter}}"
+                Command="{Binding ChangeColorCommand}"
+                CommandParameter="BottomRight" />
     </UniformGrid>
 </UserControl>

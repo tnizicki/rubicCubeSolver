@@ -17,40 +17,57 @@
     <UserControl.Resources>
         <Converters:ColorToSolidColorBrushValueConverter x:Key="ColorToSolidColorBrushConverter" />
     </UserControl.Resources>
-    <Grid Width="800"
-          Height="600"
-          Margin="50"
-          HorizontalAlignment="Left"
-          VerticalAlignment="Top"
-          Background="AliceBlue">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <controls:CubeSurface Grid.Row="0"
-                            Grid.Column="1"
-                            DataContext="{Binding TopSurface}" />
-        <controls:CubeSurface Grid.Row="1"
-                            Grid.Column="0"
-                            DataContext="{Binding LeftSurface}" />
-        <controls:CubeSurface Grid.Row="1"
-                            Grid.Column="1"
-                            DataContext="{Binding FrontSurface}" />
-        <controls:CubeSurface Grid.Row="1"
-                            Grid.Column="2"
-                            DataContext="{Binding RightSurface}" />
-        <controls:CubeSurface Grid.Row="1"
-                            Grid.Column="3"
-                            DataContext="{Binding BottomSurface}" />
-        <controls:CubeSurface Grid.Row="2"
-                            Grid.Column="1"
-                            DataContext="{Binding DownSurface}" />
+        <Grid Grid.Row="0"
+              Width="800"
+              Height="600"
+              Margin="50"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <controls:CubeSurface Grid.Row="0"
+                                  Grid.Column="1"
+                                  DataContext="{Binding TopSurface}" />
+            <controls:CubeSurface Grid.Row="1"
+                                  Grid.Column="0"
+                                  DataContext="{Binding LeftSurface}" />
+            <controls:CubeSurface Grid.Row="1"
+                                  Grid.Column="1"
+                                  DataContext="{Binding FrontSurface}" />
+            <controls:CubeSurface Grid.Row="1"
+                                  Grid.Column="2"
+                                  DataContext="{Binding RightSurface}" />
+            <controls:CubeSurface Grid.Row="1"
+                                  Grid.Column="3"
+                                  DataContext="{Binding BottomSurface}" />
+            <controls:CubeSurface Grid.Row="2"
+                                  Grid.Column="1"
+                                  DataContext="{Binding DownSurface}" />
+        </Grid>
+        <Grid Grid.Row="1" Margin="50">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="F" Width="50" Padding="5" Command="{Binding FMoveCommand}"/>
+                <Button Content="B" Width="50" Padding="5" Command="{Binding BMoveCommand}"/>
+                <Button Content="U" Width="50" Padding="5" Command="{Binding UMoveCommand}"/>
+                <Button Content="D" Width="50" Padding="5" Command="{Binding DMoveCommand}"/>
+                <Button Content="L" Width="50" Padding="5" Command="{Binding LMoveCommand}"/>
+                <Button Content="R" Width="50" Padding="5" Command="{Binding RMoveCommand}"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media;
 using RubicSolverEngine.Model.Enum;
+using System.Text;
 
 namespace RubicSolverEngine.Model
 {
@@ -40,6 +41,16 @@ namespace RubicSolverEngine.Model
                 {SurfacePosition.TopMid, color },
                 {SurfacePosition.TopRight, color }
             });
+        }
+
+        public override string ToString()
+        {
+            var builder = new StringBuilder();
+            foreach(var item in Positions)
+            {
+                builder.AppendLine($"{item.Key}: {item.Value}");
+            }
+            return builder.ToString();
         }
     }
 }

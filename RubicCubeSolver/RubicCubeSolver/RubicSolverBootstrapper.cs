@@ -14,13 +14,12 @@ namespace RubicCubeSolver
         {
             base.ConfigureContainer(builder);
 
-            //var viewModelAssembly = typeof(ShellViewModel).Assembly;
-            //builder.RegisterAssemblyTypes(viewModelAssembly).Where(x => x.Name != null && x.Name.EndsWith("ViewModel") && !x.Name.Contains("ShellViewModel"));
+            builder.RegisterType<Cube>().SingleInstance();
 
             builder.RegisterType<UserControl3ViewModel>().SingleInstance();
             builder.RegisterType<ShellViewModel>().SingleInstance();
             builder.RegisterType<CubeViewModel>().SingleInstance();
-            builder.Register(x => new CubePlainViewViewModel(new Cube())).SingleInstance();
+            builder.RegisterType<CubePlainViewViewModel>().SingleInstance();
             builder.RegisterType<Shell>();
         }
 

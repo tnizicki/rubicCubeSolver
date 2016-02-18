@@ -7,7 +7,7 @@ using RubicSolverEngine.Model.Enum;
 
 namespace RubicCubeSolver.ControlViewModels
 {
-    public class SurfaceViewModel: BindableBase
+    public class SurfaceViewModel : BindableBase
     {
         private readonly Surface _side;
         private Color _topLeft;
@@ -53,54 +53,90 @@ namespace RubicCubeSolver.ControlViewModels
         public Color TopLeft
         {
             get { return _topLeft; }
-            set { SetProperty(ref _topLeft, value); }
+            set
+            {
+                SetProperty(ref _topLeft, value);
+                _side.Positions[SurfacePosition.TopLeft] = value;
+            }
         }
 
         public Color TopMid
         {
             get { return _topMid; }
-            set { SetProperty(ref _topMid, value); }
+            set
+            {
+                SetProperty(ref _topMid, value);
+                _side.Positions[SurfacePosition.TopMid] = value;
+            }
         }
         public Color TopRight
         {
             get { return _topRight; }
-            set { SetProperty(ref _topRight, value); }
+            set
+            {
+                SetProperty(ref _topRight, value);
+                _side.Positions[SurfacePosition.TopRight] = value;
+            }
         }
 
         public Color MidLeft
         {
             get { return _midLeft; }
-            set { SetProperty(ref _midLeft, value); }
+            set
+            {
+                SetProperty(ref _midLeft, value);
+                _side.Positions[SurfacePosition.MidLeft] = value;
+            }
         }
 
         public Color Mid
         {
             get { return _mid; }
-            set { SetProperty(ref _mid, value); }
+            set
+            {
+                SetProperty(ref _mid, value);
+                _side.Positions[SurfacePosition.Mid] = value;
+            }
         }
 
         public Color MidRight
         {
             get { return _midRight; }
-            set { SetProperty(ref _midRight, value); }
+            set
+            {
+                SetProperty(ref _midRight, value);
+                _side.Positions[SurfacePosition.MidRight] = value;
+            }
         }
 
         public Color BottomLeft
         {
             get { return _bottomLeft; }
-            set { SetProperty(ref _bottomLeft, value); }
+            set
+            {
+                SetProperty(ref _bottomLeft, value);
+                _side.Positions[SurfacePosition.BottomLeft] = value;
+            }
         }
 
         public Color BottomMid
         {
             get { return _bottomMid; }
-            set { SetProperty(ref _bottomMid, value); }
+            set
+            {
+                SetProperty(ref _bottomMid, value);
+                _side.Positions[SurfacePosition.BottomMid] = value;
+            }
         }
 
         public Color BottomRight
         {
             get { return _bottomRight; }
-            set { SetProperty(ref _bottomRight, value); }
+            set
+            {
+                SetProperty(ref _bottomRight, value);
+                _side.Positions[SurfacePosition.BottomRight] = value;
+            }
         }
     }
 }
