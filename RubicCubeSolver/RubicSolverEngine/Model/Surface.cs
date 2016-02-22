@@ -2,15 +2,32 @@
 using System.Windows.Media;
 using RubicSolverEngine.Model.Enum;
 using System.Text;
+using RubicSolverEngine.Events;
+using System;
 
 namespace RubicSolverEngine.Model
 {
     public class Surface
     {
-        public Dictionary<SurfacePosition, Color> Positions { get; private set; }
+        private Dictionary<SurfacePosition, Color> Positions { get; set; }
+
+        public Color this[SurfacePosition surfacePosition]
+        {
+            get
+            {
+                return Positions[surfacePosition];
+            }
+            set
+            {
+                Positions[surfacePosition] = value;
+                FireSurfaceModified(surfacePosition, value);
+            }
+        }
+
+        public event EventHandler<SurfaceModifiedEventArgs> SurfaceModified;
 
         public LinkedList<Color> ColorsOrder { get; private set; } = new LinkedList<Color>(); //{ Colors.White, Colors.Yellow, Colors.Orange, Colors.Red, Colors.Green, Colors.Blue };
-        
+
         public Surface()
         {
             ColorsOrder.AddLast(Colors.White);
@@ -46,11 +63,19 @@ namespace RubicSolverEngine.Model
         public override string ToString()
         {
             var builder = new StringBuilder();
-            foreach(var item in Positions)
+            foreach (var item in Positions)
             {
                 builder.AppendLine($"{item.Key}: {item.Value}");
             }
             return builder.ToString();
+        }
+
+        private void FireSurfaceModified(SurfacePosition surfacePosition, Color value)
+        {
+            if (SurfaceModified != null)
+            {
+                SurfaceModified(this, new SurfaceModifiedEventArgs() { AffectedPosition = surfacePosition, NewColor = value });
+            }
         }
     }
 }

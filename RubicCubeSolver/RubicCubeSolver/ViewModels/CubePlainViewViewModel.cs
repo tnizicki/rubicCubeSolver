@@ -21,11 +21,11 @@ namespace RubicCubeSolver.ViewModels
             : base(cube)
         {
             _cube = cube;
-            //FMoveCommand = new DelegateCommand(_cube.PeformFMove);
-            FMoveCommand = new DelegateCommand(() =>
-            {
-                MessageBox.Show(cube.Surfaces[RubicSolverEngine.Model.Enum.SideType.Front].ToString());
-            });
+            FMoveCommand = new DelegateCommand(_cube.PeformFMove);
+            //FMoveCommand = new DelegateCommand(() =>
+            //{
+            //    MessageBox.Show(cube.Surfaces[RubicSolverEngine.Model.Enum.SideType.Front].ToString());
+            //});
         }
     }
 }

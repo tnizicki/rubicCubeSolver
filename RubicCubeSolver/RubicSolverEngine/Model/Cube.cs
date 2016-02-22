@@ -7,7 +7,19 @@ namespace RubicSolverEngine.Model
 {
     public class Cube
     {
-        public Dictionary<SideType, Surface> Surfaces { get; private set; } = new Dictionary<SideType, Surface>();
+        private Dictionary<SideType, Surface> _surfaces { get; set; } = new Dictionary<SideType, Surface>();
+
+        public Surface this[SideType sideType]
+        {
+            get
+            {
+                return _surfaces[sideType];
+            }
+            set
+            {
+                _surfaces[sideType] = value;
+            }
+        }
 
         public Cube()
         {
@@ -21,17 +33,17 @@ namespace RubicSolverEngine.Model
 
         private void Init()
         {
-            Surfaces.Add(SideType.Front, Surface.GetFullColorLayer(Colors.Blue));
-            Surfaces.Add(SideType.Bottom, Surface.GetFullColorLayer(Colors.Green));
-            Surfaces.Add(SideType.Top, Surface.GetFullColorLayer(Colors.Orange));
-            Surfaces.Add(SideType.Down, Surface.GetFullColorLayer(Colors.Red));
-            Surfaces.Add(SideType.Right, Surface.GetFullColorLayer(Colors.White));
-            Surfaces.Add(SideType.Left, Surface.GetFullColorLayer(Colors.Yellow));
+            this[SideType.Front] = Surface.GetFullColorLayer(Colors.Blue);
+            this[SideType.Bottom] = Surface.GetFullColorLayer(Colors.Green);
+            this[SideType.Top] = Surface.GetFullColorLayer(Colors.Orange);
+            this[SideType.Down] = Surface.GetFullColorLayer(Colors.Red);
+            this[SideType.Right] = Surface.GetFullColorLayer(Colors.White);
+            this[SideType.Left] = Surface.GetFullColorLayer(Colors.Yellow);
         }
 
         public void PeformFMove()
         {
-            
+            this[SideType.Front][SurfacePosition.Mid] = Colors.Black;
         }
     }
 }

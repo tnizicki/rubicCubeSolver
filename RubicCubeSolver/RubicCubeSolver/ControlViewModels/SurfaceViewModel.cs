@@ -4,6 +4,7 @@ using System.Windows.Input;
 using RubicSolverEngine.Model;
 using Microsoft.Practices.Prism.Commands;
 using RubicSolverEngine.Model.Enum;
+using RubicSolverEngine.Events;
 
 namespace RubicCubeSolver.ControlViewModels
 {
@@ -25,21 +26,27 @@ namespace RubicCubeSolver.ControlViewModels
         public SurfaceViewModel(Surface side)
         {
             _side = side;
+            side.SurfaceModified += Side_SurfaceModified;
             ChangeColorCommand = new DelegateCommand<string>(ChangeColor);
+            Init();
+        }
+
+        private void Side_SurfaceModified(object sender, SurfaceModifiedEventArgs e)
+        {
             Init();
         }
 
         private void Init()
         {
-            TopLeft = _side.Positions[SurfacePosition.TopLeft];
-            TopMid = _side.Positions[SurfacePosition.TopMid];
-            TopRight = _side.Positions[SurfacePosition.TopRight];
-            MidLeft = _side.Positions[SurfacePosition.MidLeft];
-            Mid = _side.Positions[SurfacePosition.Mid];
-            MidRight = _side.Positions[SurfacePosition.MidRight];
-            BottomLeft = _side.Positions[SurfacePosition.BottomLeft];
-            BottomMid = _side.Positions[SurfacePosition.BottomMid];
-            BottomRight = _side.Positions[SurfacePosition.BottomRight];
+            TopLeft = _side[SurfacePosition.TopLeft];
+            TopMid = _side[SurfacePosition.TopMid];
+            TopRight = _side[SurfacePosition.TopRight];
+            MidLeft = _side[SurfacePosition.MidLeft];
+            Mid = _side[SurfacePosition.Mid];
+            MidRight = _side[SurfacePosition.MidRight];
+            BottomLeft = _side[SurfacePosition.BottomLeft];
+            BottomMid = _side[SurfacePosition.BottomMid];
+            BottomRight = _side[SurfacePosition.BottomRight];
         }
 
         private void ChangeColor(string parameter)
@@ -55,8 +62,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _topLeft; }
             set
             {
-                SetProperty(ref _topLeft, value);
-                _side.Positions[SurfacePosition.TopLeft] = value;
+                if (_topLeft != value)
+                {
+                    SetProperty(ref _topLeft, value);
+                    _side[SurfacePosition.TopLeft] = value;
+                }
             }
         }
 
@@ -65,8 +75,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _topMid; }
             set
             {
-                SetProperty(ref _topMid, value);
-                _side.Positions[SurfacePosition.TopMid] = value;
+                if (_topMid != value)
+                {
+                    SetProperty(ref _topMid, value);
+                    _side[SurfacePosition.TopMid] = value;
+                }
             }
         }
         public Color TopRight
@@ -74,8 +87,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _topRight; }
             set
             {
-                SetProperty(ref _topRight, value);
-                _side.Positions[SurfacePosition.TopRight] = value;
+                if (_topRight != value)
+                {
+                    SetProperty(ref _topRight, value);
+                    _side[SurfacePosition.TopRight] = value;
+                }
             }
         }
 
@@ -84,8 +100,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _midLeft; }
             set
             {
-                SetProperty(ref _midLeft, value);
-                _side.Positions[SurfacePosition.MidLeft] = value;
+                if (_midLeft != value)
+                {
+                    SetProperty(ref _midLeft, value);
+                    _side[SurfacePosition.MidLeft] = value;
+                }
             }
         }
 
@@ -94,8 +113,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _mid; }
             set
             {
-                SetProperty(ref _mid, value);
-                _side.Positions[SurfacePosition.Mid] = value;
+                if (_mid != value)
+                {
+                    SetProperty(ref _mid, value);
+                    _side[SurfacePosition.Mid] = value;
+                }
             }
         }
 
@@ -104,8 +126,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _midRight; }
             set
             {
-                SetProperty(ref _midRight, value);
-                _side.Positions[SurfacePosition.MidRight] = value;
+                if (_midRight != value)
+                {
+                    SetProperty(ref _midRight, value);
+                    _side[SurfacePosition.MidRight] = value;
+                }
             }
         }
 
@@ -114,8 +139,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _bottomLeft; }
             set
             {
-                SetProperty(ref _bottomLeft, value);
-                _side.Positions[SurfacePosition.BottomLeft] = value;
+                if (_bottomLeft != value)
+                {
+                    SetProperty(ref _bottomLeft, value);
+                    _side[SurfacePosition.BottomLeft] = value;
+                }
             }
         }
 
@@ -124,8 +152,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _bottomMid; }
             set
             {
-                SetProperty(ref _bottomMid, value);
-                _side.Positions[SurfacePosition.BottomMid] = value;
+                if (_bottomMid != value)
+                {
+                    SetProperty(ref _bottomMid, value);
+                    _side[SurfacePosition.BottomMid] = value;
+                }
             }
         }
 
@@ -134,8 +165,11 @@ namespace RubicCubeSolver.ControlViewModels
             get { return _bottomRight; }
             set
             {
-                SetProperty(ref _bottomRight, value);
-                _side.Positions[SurfacePosition.BottomRight] = value;
+                if (_bottomRight != value)
+                {
+                    SetProperty(ref _bottomRight, value);
+                    _side[SurfacePosition.BottomRight] = value;
+                }
             }
         }
     }

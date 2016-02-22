@@ -18,12 +18,12 @@ namespace RubicCubeSolver.ViewModels
         public CubeViewModel(Cube cube)
         {
             _cube = cube;
-            TopSurface = new SurfaceViewModel(_cube.Surfaces[SideType.Top]);
-            DownSurface = new SurfaceViewModel(_cube.Surfaces[SideType.Down]);
-            LeftSurface = new SurfaceViewModel(_cube.Surfaces[SideType.Left]);
-            RightSurface = new SurfaceViewModel(_cube.Surfaces[SideType.Right]);
-            FrontSurface = new SurfaceViewModel(_cube.Surfaces[SideType.Front]);
-            BottomSurface = new SurfaceViewModel(_cube.Surfaces[SideType.Bottom]);
+            TopSurface = new SurfaceViewModel(_cube[SideType.Top]);
+            DownSurface = new SurfaceViewModel(_cube[SideType.Down]);
+            LeftSurface = new SurfaceViewModel(_cube[SideType.Left]);
+            RightSurface = new SurfaceViewModel(_cube[SideType.Right]);
+            FrontSurface = new SurfaceViewModel(_cube[SideType.Front]);
+            BottomSurface = new SurfaceViewModel(_cube[SideType.Bottom]);
         }
 
         public SurfaceViewModel TopSurface

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\SurfaceModifiedEventArgs.cs" />
     <Compile Include="Model\Cube.cs" />
     <Compile Include="Model\Enum\SurfacePosition.cs" />
     <Compile Include="Model\Enum\SideType.cs" />
