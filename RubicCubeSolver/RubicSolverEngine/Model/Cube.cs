@@ -74,16 +74,57 @@ namespace RubicSolverEngine.Model
         public void PerformUMove()
         {
             this[SideType.Top].Rotate();
+
+            var tmpT = this[SideType.Left][SurfacePosition.TopLeft];
+            var tmpM = this[SideType.Left][SurfacePosition.TopMid];
+            var tmpB = this[SideType.Left][SurfacePosition.TopRight];
+
+            this[SideType.Left][SurfacePosition.TopLeft] = this[SideType.Front][SurfacePosition.TopLeft];
+            this[SideType.Left][SurfacePosition.TopMid] = this[SideType.Front][SurfacePosition.TopMid];
+            this[SideType.Left][SurfacePosition.TopRight] = this[SideType.Front][SurfacePosition.TopRight];
+
+            this[SideType.Front][SurfacePosition.TopLeft] = this[SideType.Right][SurfacePosition.TopLeft];
+            this[SideType.Front][SurfacePosition.TopMid] = this[SideType.Right][SurfacePosition.TopMid];
+            this[SideType.Front][SurfacePosition.TopRight] = this[SideType.Right][SurfacePosition.TopRight];
+
+            this[SideType.Right][SurfacePosition.TopLeft] = this[SideType.Bottom][SurfacePosition.TopLeft];
+            this[SideType.Right][SurfacePosition.TopMid] = this[SideType.Bottom][SurfacePosition.TopMid];
+            this[SideType.Right][SurfacePosition.TopRight] = this[SideType.Bottom][SurfacePosition.TopRight];
+
+            this[SideType.Bottom][SurfacePosition.TopLeft] = tmpT;
+            this[SideType.Bottom][SurfacePosition.TopMid] = tmpM;
+            this[SideType.Bottom][SurfacePosition.TopRight] = tmpB;
         }
 
         public void PerformDMove()
         {
             this[SideType.Down].Rotate();
+
+            var tmpT = this[SideType.Left][SurfacePosition.BottomLeft];
+            var tmpM = this[SideType.Left][SurfacePosition.BottomMid];
+            var tmpB = this[SideType.Left][SurfacePosition.BottomRight];
+
+            this[SideType.Left][SurfacePosition.BottomLeft] = this[SideType.Front][SurfacePosition.BottomLeft];
+            this[SideType.Left][SurfacePosition.BottomMid] = this[SideType.Front][SurfacePosition.BottomMid];
+            this[SideType.Left][SurfacePosition.BottomRight] = this[SideType.Front][SurfacePosition.BottomRight];
+
+            this[SideType.Front][SurfacePosition.BottomLeft] = this[SideType.Right][SurfacePosition.BottomLeft];
+            this[SideType.Front][SurfacePosition.BottomMid] = this[SideType.Right][SurfacePosition.BottomMid];
+            this[SideType.Front][SurfacePosition.BottomRight] = this[SideType.Right][SurfacePosition.BottomRight];
+
+            this[SideType.Right][SurfacePosition.BottomLeft] = this[SideType.Bottom][SurfacePosition.BottomLeft];
+            this[SideType.Right][SurfacePosition.BottomMid] = this[SideType.Bottom][SurfacePosition.BottomMid];
+            this[SideType.Right][SurfacePosition.BottomRight] = this[SideType.Bottom][SurfacePosition.BottomRight];
+
+            this[SideType.Bottom][SurfacePosition.BottomLeft] = tmpT;
+            this[SideType.Bottom][SurfacePosition.BottomMid] = tmpM;
+            this[SideType.Bottom][SurfacePosition.BottomRight] = tmpB;
         }
 
         public void PerformRMove()
         {
             this[SideType.Right].Rotate();
+
             var tmpT = this[SideType.Bottom][SurfacePosition.TopLeft];
             var tmpM = this[SideType.Bottom][SurfacePosition.MidLeft];
             var tmpB = this[SideType.Bottom][SurfacePosition.BottomLeft];
@@ -108,6 +149,26 @@ namespace RubicSolverEngine.Model
         public void PerformLMove()
         {
             this[SideType.Left].Rotate();
+
+            var tmpT = this[SideType.Front][SurfacePosition.TopLeft];
+            var tmpM = this[SideType.Front][SurfacePosition.MidLeft];
+            var tmpB = this[SideType.Front][SurfacePosition.BottomLeft];
+
+            this[SideType.Front][SurfacePosition.TopLeft] = this[SideType.Top][SurfacePosition.TopLeft];
+            this[SideType.Front][SurfacePosition.MidLeft] = this[SideType.Top][SurfacePosition.MidLeft];
+            this[SideType.Front][SurfacePosition.BottomLeft] = this[SideType.Top][SurfacePosition.BottomLeft];
+
+            this[SideType.Top][SurfacePosition.TopLeft] = this[SideType.Bottom][SurfacePosition.BottomRight];
+            this[SideType.Top][SurfacePosition.MidLeft] = this[SideType.Bottom][SurfacePosition.MidRight];
+            this[SideType.Top][SurfacePosition.BottomLeft] = this[SideType.Bottom][SurfacePosition.TopRight];
+
+            this[SideType.Bottom][SurfacePosition.BottomRight] = this[SideType.Down][SurfacePosition.TopLeft];
+            this[SideType.Bottom][SurfacePosition.MidRight] = this[SideType.Down][SurfacePosition.MidLeft];
+            this[SideType.Bottom][SurfacePosition.TopRight] = this[SideType.Down][SurfacePosition.BottomLeft];
+
+            this[SideType.Down][SurfacePosition.TopLeft] = tmpT;
+            this[SideType.Down][SurfacePosition.MidLeft] = tmpM;
+            this[SideType.Down][SurfacePosition.BottomLeft] = tmpB;
         }
     }
 }
