@@ -43,7 +43,32 @@ namespace RubicSolverEngine.Model
 
         public void PeformFMove()
         {
-            this[SideType.Front][SurfacePosition.Mid] = Colors.Black;
+            this[SideType.Front].Rotate();
+        }
+
+        public void PerformBMove()
+        {
+            this[SideType.Bottom].Rotate();
+        }
+
+        public void PerformUMove()
+        {
+            this[SideType.Top].Rotate();
+        }
+
+        public void PerformDMove()
+        {
+            this[SideType.Down].Rotate();
+        }
+
+        public void PerformRMove()
+        {
+            this[SideType.Right].Rotate();
+        }
+
+        public void PerformLMove()
+        {
+            this[SideType.Left].Rotate();
         }
     }
 }

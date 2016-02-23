@@ -44,6 +44,23 @@ namespace RubicSolverEngine.Model
             Positions = content;
         }
 
+        internal void Rotate()
+        {
+            var tmpT = this[SurfacePosition.TopRight];
+            var tmpM = this[SurfacePosition.MidRight];
+            var tmpB = this[SurfacePosition.BottomRight];
+
+            this[SurfacePosition.BottomRight] = this[SurfacePosition.TopRight];
+            this[SurfacePosition.MidRight] = this[SurfacePosition.TopMid];
+            this[SurfacePosition.TopRight] = this[SurfacePosition.TopLeft];
+            this[SurfacePosition.TopMid] = this[SurfacePosition.MidLeft];
+            this[SurfacePosition.TopLeft] = this[SurfacePosition.BottomLeft];
+            this[SurfacePosition.MidLeft] = this[SurfacePosition.BottomMid];
+            this[SurfacePosition.BottomLeft] = tmpB;
+            this[SurfacePosition.BottomMid] = tmpM;
+            this[SurfacePosition.BottomRight] = tmpT;
+        }
+
         internal static Surface GetFullColorLayer(Color color)
         {
             return new Surface(new Dictionary<SurfacePosition, Color>
