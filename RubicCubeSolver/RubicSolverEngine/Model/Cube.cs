@@ -44,6 +44,26 @@ namespace RubicSolverEngine.Model
         public void PeformFMove()
         {
             this[SideType.Front].Rotate();
+
+            var tmpT = this[SideType.Right][SurfacePosition.TopLeft];
+            var tmpM = this[SideType.Right][SurfacePosition.MidLeft];
+            var tmpB = this[SideType.Right][SurfacePosition.BottomLeft];
+
+            this[SideType.Right][SurfacePosition.BottomLeft] = this[SideType.Top][SurfacePosition.BottomRight];
+            this[SideType.Right][SurfacePosition.MidLeft] = this[SideType.Top][SurfacePosition.BottomMid];
+            this[SideType.Right][SurfacePosition.TopLeft] = this[SideType.Top][SurfacePosition.BottomLeft];
+
+            this[SideType.Top][SurfacePosition.BottomRight] = this[SideType.Left][SurfacePosition.TopRight];
+            this[SideType.Top][SurfacePosition.BottomMid] = this[SideType.Left][SurfacePosition.MidRight];
+            this[SideType.Top][SurfacePosition.BottomLeft] = this[SideType.Left][SurfacePosition.BottomRight];
+
+            this[SideType.Left][SurfacePosition.TopRight] = this[SideType.Down][SurfacePosition.TopLeft];
+            this[SideType.Left][SurfacePosition.MidRight] = this[SideType.Down][SurfacePosition.TopMid];
+            this[SideType.Left][SurfacePosition.BottomRight] = this[SideType.Down][SurfacePosition.TopRight];
+
+            this[SideType.Down][SurfacePosition.TopLeft] = tmpB;
+            this[SideType.Down][SurfacePosition.TopMid] = tmpM;
+            this[SideType.Down][SurfacePosition.TopRight] = tmpT;
         }
 
         public void PerformBMove()
