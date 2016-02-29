@@ -16,6 +16,7 @@ namespace RubicCubeSolver.ViewModels
         public ICommand DMoveCommand { get; set; }
         public ICommand LMoveCommand { get; set; }
         public ICommand RMoveCommand { get; set; }
+        public ICommand ResolveCommand { get; set; }
 
         public CubePlainViewViewModel(Cube cube)
             : base(cube)
@@ -27,6 +28,7 @@ namespace RubicCubeSolver.ViewModels
             DMoveCommand = new DelegateCommand(_cube.PerformDMove);
             LMoveCommand = new DelegateCommand(_cube.PerformLMove);
             RMoveCommand = new DelegateCommand(_cube.PerformRMove);
+            ResolveCommand = new DelegateCommand(_cube.Resolve);
         }
     }
 }

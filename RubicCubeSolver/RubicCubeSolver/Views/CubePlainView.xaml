@@ -61,12 +61,34 @@
         </Grid>
         <Grid Grid.Row="1" Margin="50">
             <StackPanel Orientation="Horizontal">
-                <Button Content="F" Width="50" Padding="5" Command="{Binding FMoveCommand}"/>
-                <Button Content="B" Width="50" Padding="5" Command="{Binding BMoveCommand}"/>
-                <Button Content="U" Width="50" Padding="5" Command="{Binding UMoveCommand}"/>
-                <Button Content="D" Width="50" Padding="5" Command="{Binding DMoveCommand}"/>
-                <Button Content="L" Width="50" Padding="5" Command="{Binding LMoveCommand}"/>
-                <Button Content="R" Width="50" Padding="5" Command="{Binding RMoveCommand}"/>
+                <Button Width="50"
+                        Command="{Binding FMoveCommand}"
+                        Content="F"
+                        Padding="5" />
+                <Button Width="50"
+                        Command="{Binding BMoveCommand}"
+                        Content="B"
+                        Padding="5" />
+                <Button Width="50"
+                        Command="{Binding UMoveCommand}"
+                        Content="U"
+                        Padding="5" />
+                <Button Width="50"
+                        Command="{Binding DMoveCommand}"
+                        Content="D"
+                        Padding="5" />
+                <Button Width="50"
+                        Command="{Binding LMoveCommand}"
+                        Content="L"
+                        Padding="5" />
+                <Button Width="50"
+                        Command="{Binding RMoveCommand}"
+                        Content="R"
+                        Padding="5" />
+                <Button Width="50"
+                        Command="{Binding ResolveCommand}"
+                        Content="Resolve"
+                        Padding="5" />
             </StackPanel>
         </Grid>
     </Grid>

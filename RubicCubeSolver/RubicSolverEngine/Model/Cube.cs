@@ -26,6 +26,12 @@ namespace RubicSolverEngine.Model
             Init();
         }
 
+        public void Resolve()
+        {
+            var result = IsFirstStepCrossReady();
+            Console.WriteLine(result);
+        }
+
         public bool IsValid()
         {
             return true; //TODO
@@ -189,6 +195,22 @@ namespace RubicSolverEngine.Model
             this[SideType.Down][SurfacePosition.TopLeft] = tmpT;
             this[SideType.Down][SurfacePosition.MidLeft] = tmpM;
             this[SideType.Down][SurfacePosition.BottomLeft] = tmpB;
+        }
+
+        private bool IsFirstStepCrossReady()
+        {
+            var result = true;
+            result &= this[SideType.Down][SurfacePosition.TopMid].Equals(this[SideType.Down][SurfacePosition.Mid]);
+            result &= this[SideType.Down][SurfacePosition.BottomMid].Equals(this[SideType.Down][SurfacePosition.Mid]);
+            result &= this[SideType.Down][SurfacePosition.MidLeft].Equals(this[SideType.Down][SurfacePosition.Mid]);
+            result &= this[SideType.Down][SurfacePosition.MidRight].Equals(this[SideType.Down][SurfacePosition.Mid]);
+
+            result &= this[SideType.Front][SurfacePosition.Mid].Equals(this[SideType.Front][SurfacePosition.BottomMid]);
+            result &= this[SideType.Right][SurfacePosition.Mid].Equals(this[SideType.Right][SurfacePosition.BottomMid]);
+            result &= this[SideType.Left][SurfacePosition.Mid].Equals(this[SideType.Left][SurfacePosition.BottomMid]);
+            result &= this[SideType.Bottom][SurfacePosition.Mid].Equals(this[SideType.Bottom][SurfacePosition.BottomMid]);
+
+            return result;
         }
     }
 }
