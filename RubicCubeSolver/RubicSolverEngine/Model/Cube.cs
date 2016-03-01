@@ -29,6 +29,7 @@ namespace RubicSolverEngine.Model
         public void Resolve()
         {
             var result = IsFirstStepCrossReady();
+            result = IsFirstLayerReady();
             Console.WriteLine(result);
         }
 
@@ -209,6 +210,28 @@ namespace RubicSolverEngine.Model
             result &= this[SideType.Right][SurfacePosition.Mid].Equals(this[SideType.Right][SurfacePosition.BottomMid]);
             result &= this[SideType.Left][SurfacePosition.Mid].Equals(this[SideType.Left][SurfacePosition.BottomMid]);
             result &= this[SideType.Bottom][SurfacePosition.Mid].Equals(this[SideType.Bottom][SurfacePosition.BottomMid]);
+
+            return result;
+        }
+
+        private bool IsFirstLayerReady()
+        {
+            var result = true;
+            result &= this[SideType.Front][SurfacePosition.BottomRight].Equals(this[SideType.Front][SurfacePosition.Mid]);  //
+            result &= this[SideType.Right][SurfacePosition.BottomLeft].Equals(this[SideType.Right][SurfacePosition.Mid]);   //front right corner
+            result &= this[SideType.Down][SurfacePosition.TopRight].Equals(this[SideType.Down][SurfacePosition.Mid]);       //
+
+            result &= this[SideType.Front][SurfacePosition.BottomLeft].Equals(this[SideType.Front][SurfacePosition.Mid]);  //
+            result &= this[SideType.Left][SurfacePosition.BottomRight].Equals(this[SideType.Left][SurfacePosition.Mid]);   //front left corner
+            result &= this[SideType.Down][SurfacePosition.TopLeft].Equals(this[SideType.Down][SurfacePosition.Mid]);       //
+
+            result &= this[SideType.Bottom][SurfacePosition.BottomLeft].Equals(this[SideType.Bottom][SurfacePosition.Mid]);  //
+            result &= this[SideType.Right][SurfacePosition.BottomRight].Equals(this[SideType.Right][SurfacePosition.Mid]);   //bottom right corner
+            result &= this[SideType.Down][SurfacePosition.BottomRight].Equals(this[SideType.Down][SurfacePosition.Mid]);     //
+
+            result &= this[SideType.Bottom][SurfacePosition.BottomRight].Equals(this[SideType.Bottom][SurfacePosition.Mid]);  //
+            result &= this[SideType.Left][SurfacePosition.BottomLeft].Equals(this[SideType.Left][SurfacePosition.Mid]);       //bottom left corner
+            result &= this[SideType.Down][SurfacePosition.BottomLeft].Equals(this[SideType.Down][SurfacePosition.Mid]);       //
 
             return result;
         }
