@@ -30,6 +30,8 @@ namespace RubicSolverEngine.Model
         {
             var result = IsFirstStepCrossReady();
             result = IsFirstLayerReady();
+            result = IsSecondLayerReady();
+            result = IsThirdLayerReady();
             Console.WriteLine(result);
         }
 
@@ -232,6 +234,52 @@ namespace RubicSolverEngine.Model
             result &= this[SideType.Bottom][SurfacePosition.BottomRight].Equals(this[SideType.Bottom][SurfacePosition.Mid]);  //
             result &= this[SideType.Left][SurfacePosition.BottomLeft].Equals(this[SideType.Left][SurfacePosition.Mid]);       //bottom left corner
             result &= this[SideType.Down][SurfacePosition.BottomLeft].Equals(this[SideType.Down][SurfacePosition.Mid]);       //
+
+            return result;
+        }
+
+        private bool IsSecondLayerReady()
+        {
+            var result = true;
+            result &= this[SideType.Front][SurfacePosition.MidRight].Equals(this[SideType.Front][SurfacePosition.Mid]);  //
+            result &= this[SideType.Front][SurfacePosition.MidLeft].Equals(this[SideType.Front][SurfacePosition.Mid]);   //front 
+
+            result &= this[SideType.Right][SurfacePosition.MidRight].Equals(this[SideType.Right][SurfacePosition.Mid]);  //
+            result &= this[SideType.Right][SurfacePosition.MidLeft].Equals(this[SideType.Right][SurfacePosition.Mid]);   //right 
+
+            result &= this[SideType.Left][SurfacePosition.MidRight].Equals(this[SideType.Left][SurfacePosition.Mid]);  //
+            result &= this[SideType.Left][SurfacePosition.MidLeft].Equals(this[SideType.Left][SurfacePosition.Mid]);   //left 
+
+            result &= this[SideType.Bottom][SurfacePosition.MidRight].Equals(this[SideType.Bottom][SurfacePosition.Mid]);  //
+            result &= this[SideType.Bottom][SurfacePosition.MidLeft].Equals(this[SideType.Bottom][SurfacePosition.Mid]);   //bottom 
+            return result;
+        }
+
+        private bool IsThirdLayerReady()
+        {
+            var result = true;
+            result &= this[SideType.Front][SurfacePosition.TopRight].Equals(this[SideType.Front][SurfacePosition.TopMid]);  //
+            result &= this[SideType.Front][SurfacePosition.TopLeft].Equals(this[SideType.Front][SurfacePosition.TopMid]);   //front 
+
+            result &= this[SideType.Right][SurfacePosition.TopRight].Equals(this[SideType.Right][SurfacePosition.TopMid]);  //
+            result &= this[SideType.Right][SurfacePosition.TopLeft].Equals(this[SideType.Right][SurfacePosition.TopMid]);   //right 
+
+            result &= this[SideType.Left][SurfacePosition.TopRight].Equals(this[SideType.Left][SurfacePosition.TopMid]);  //
+            result &= this[SideType.Left][SurfacePosition.TopLeft].Equals(this[SideType.Left][SurfacePosition.TopMid]);   //left 
+
+            result &= this[SideType.Bottom][SurfacePosition.TopRight].Equals(this[SideType.Bottom][SurfacePosition.TopMid]);  //
+            result &= this[SideType.Bottom][SurfacePosition.TopLeft].Equals(this[SideType.Bottom][SurfacePosition.TopMid]);   //bottom 
+
+            result &= this[SideType.Top][SurfacePosition.TopRight].Equals(this[SideType.Top][SurfacePosition.Mid]);     //
+            result &= this[SideType.Top][SurfacePosition.TopLeft].Equals(this[SideType.Top][SurfacePosition.Mid]);      //
+            result &= this[SideType.Top][SurfacePosition.TopMid].Equals(this[SideType.Top][SurfacePosition.Mid]);       //
+
+            result &= this[SideType.Top][SurfacePosition.BottomLeft].Equals(this[SideType.Top][SurfacePosition.Mid]);   //
+            result &= this[SideType.Top][SurfacePosition.BottomMid].Equals(this[SideType.Top][SurfacePosition.Mid]);    // upper
+            result &= this[SideType.Top][SurfacePosition.BottomRight].Equals(this[SideType.Top][SurfacePosition.Mid]);  //
+
+            result &= this[SideType.Top][SurfacePosition.MidLeft].Equals(this[SideType.Top][SurfacePosition.Mid]);      //
+            result &= this[SideType.Top][SurfacePosition.MidRight].Equals(this[SideType.Top][SurfacePosition.Mid]);     //
 
             return result;
         }
